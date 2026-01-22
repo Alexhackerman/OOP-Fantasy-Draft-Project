@@ -141,17 +141,4 @@ public abstract class User
         return getFullName() + " (" + username + ") - " + role;
     }
 
-    public boolean canPerformAction(String action)
-    {
-        switch (action.toLowerCase())
-        {
-            case "login":
-                return true;
-            case "view_profile":
-                return true;
-            default:
-                return false;
-        }
-    }
-
 }

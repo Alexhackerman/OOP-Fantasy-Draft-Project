@@ -56,12 +56,6 @@ public class Drafter extends User
         return "Can play draft game, create formations, save drafts, view own history";
     }
 
-        public void playDraftGame()
-        {
-            System.out.println(getFullName() + " is starting a new draft game...");
-            openDashboard(); // Opens formation page
-        }
-
     public double calculateFormationRating(int[] playerOveralls)
     {
         if (playerOveralls == null || playerOveralls.length == 0)
@@ -110,22 +104,26 @@ public class Drafter extends User
         return calculateFormationRating(overalls);
     }
 
-    public boolean saveDraft(String formationName, double formationRating, List<Draft.Player> players) {
-
+    public boolean saveDraft(String formationName, double formationRating, List<Draft.Player> players)
+    {
         int choice = JOptionPane.showConfirmDialog(null,
                 String.format("Save draft '%s' with rating %.1f?", formationName, formationRating),
                 "Save Draft", JOptionPane.YES_NO_OPTION);
 
-        if (choice == JOptionPane.YES_OPTION) {
+        if (choice == JOptionPane.YES_OPTION)
+        {
             currentDraftID = draftRepo.createDraft(this.getUserId(), formationRating);
 
-            if (currentDraftID == -1) {
+            if (currentDraftID == -1)
+            {
                 JOptionPane.showMessageDialog(null, "Failed to create a draft!", "Error", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
 
-            if (players != null) {
-                for (int i = 0; i < players.size(); i++) {
+            if (players != null)
+            {
+                for (int i = 0; i < players.size(); i++)
+                {
                     Player player = players.get(i);
                     draftRepo.saveDraftPick(currentDraftID, this.getUserId(), player.getPlayerId(), i + 1);
                 }
@@ -200,24 +198,6 @@ public class Drafter extends User
     public Date getLastDraftDate()
     {
         return lastDraftDate;
-    }
-
-    @Override
-    public boolean canPerformAction(String action)
-    {
-        switch (action.toLowerCase()) {
-            case "create_formation":
-            case "save_draft":
-            case "view_history":
-            case "play_game":
-                return true;
-            case "manage_players":
-            case "manage_users":
-            case "delete_data":
-                return false;
-            default:
-                return super.canPerformAction(action);
-        }
     }
 
     @Override

@@ -23,7 +23,6 @@ public class Admin extends User
     {
         SwingUtilities.invokeLater(() ->
         {
-
             AdminPage adminPage = new AdminPage(this);
         });
     }

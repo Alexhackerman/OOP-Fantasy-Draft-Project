@@ -4,6 +4,8 @@ import Repository.DatabaseConfig;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Teams
 {
@@ -93,14 +95,14 @@ public class Teams
         return new HashMap<>(idToName);
     }
 
-    public static java.util.List<String> getAllTeamNames()
+    public static List<String> getAllTeamNames()
     {
         if (idToName == null)
         {
             loadTeamsFromDatabase();
         }
 
-        return new java.util.ArrayList<>(idToName.values());
+        return new ArrayList<>(idToName.values());
     }
 
     // Private helper methods

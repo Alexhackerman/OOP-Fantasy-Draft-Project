@@ -1,7 +1,5 @@
 package Repository;
 
-import Draft.Player;
-import Users.Drafter;
 import java.sql.*;
 import java.util.*;
 
@@ -80,7 +78,7 @@ public class DraftRepository
         {
 
             pstmt.setDouble(1, rating);
-            pstmt.setInt(1, draftId);
+            pstmt.setInt(2, draftId);
             int rowsAffected = pstmt.executeUpdate();
 
             return rowsAffected > 0;
@@ -126,7 +124,7 @@ public class DraftRepository
 
                 // Get pick count for this user in this draft
                 int userPickCount = getPickCountForUserInDraft(draftId, drafterId);
-                draft.put("totalPicks", userPickCount); // Actually user's picks in this draft
+                draft.put("totalPicks", userPickCount);
 
                 // Get total picks in draft
                 int totalPicksInDraft = getTotalPicksForDraft(draftId);

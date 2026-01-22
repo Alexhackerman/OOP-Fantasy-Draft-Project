@@ -57,6 +57,7 @@ public class TestDrafter
         Drafter drafter = new Drafter(1, "Test", "User", "user", "email", "pass");
 
         int[] stats = new int[11]; // 11 players
+
         for(int i=0; i<11; i++) stats[i] = 100;
 
         double result = drafter.calculateFormationRating(stats);
