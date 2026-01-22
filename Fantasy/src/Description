@@ -1,0 +1,14 @@
+Two users: Drafter, Admin
+
+Drafter can pick positions, pick the formation, select players, switch players around, get score.
+Admin can add and remove players, edit players rating and manage users.
+
+Classes:
+User, Drafter, Admin, Draft.Player, Draft.Formation
+
+Attributes:
+User: username, password, login(), logout()
+Admin: username, password, editPlayer(), addPlayer(), removePlayer()
+Drafter: username, password, selectFormation(), selectPosition(), pickPlayer(), getRating()
+Draft.Formation: name, players[], rating, positions
+Draft.Player: name, rating, team, photo, nationality, position

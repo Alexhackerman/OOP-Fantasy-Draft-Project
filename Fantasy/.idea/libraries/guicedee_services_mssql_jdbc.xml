@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="guicedee.services.mssql.jdbc" type="repository">
+    <properties maven-id="com.guicedee.services:mssql-jdbc:1.2.1.1-jre17" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/guicedee/services/mssql-jdbc/1.2.1.1-jre17/mssql-jdbc-1.2.1.1-jre17.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
